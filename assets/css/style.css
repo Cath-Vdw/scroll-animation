@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  background-color: lavender;
+}
+
+h1,
+h2 {
+  font-family: 'Lobster', sans-serif;
+  color: rgb(240, 60, 240);
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-shadow: 1px 1px slateblue;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.9rem;
+  margin: 15px 0;;
+}
+
+
+/* Style des boîtes contenant les images */
+.box {
+  width: 250px;
+  height: 350px;
+  display: flex;
+  border-radius: 8px;
+  box-shadow: 2px 4px 5px rgba(34, 10, 189, 0.3); /* Ombre portée */
+  overflow: hidden; /* Coupe ce qui dépasse (utile pour les images) */
+  margin: 15px 0;
+  transform: translateX(200%); /* Décalée à droite (invisible au départ) */
+  transition: transform 0.5s ease; /* Animation fluide sur le mouvement */
+}
+
+/* Boîtes paires décalées vers la gauche */
+.box:nth-of-type(even) {
+  transform: translateX(-200%)
+}
+
+/* Classe ajoutée pour faire apparaître les boîtes à l’écran */
+.box.show,
+.box.show:nth-of-type(even) {
+  transform: translateX(0);
+}
+
+/* Image à l'intérieur de la boîte */
+.box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Remplissage complet sans déformer */
+  display: block; /* Supprime l’espace blanc des images inline */
+}
